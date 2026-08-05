@@ -9,7 +9,7 @@ Stage 1 — Analytical Pricer
 2. Compute discounted average payoff
 3. Compare convergence against analytical solution as N increases
 4. Implement antithetic variates variance reduction
-5. Plot convergence rate demonstrating O(N −1/2 ) behaviour
+5. Plot convergence rate demonstrating O(N^−1/2 ) behaviour
 
  Stage 3 — Greeks and Extensions
 1. Implement Delta, Gamma, Vega analytically from Black-Scholes formula
