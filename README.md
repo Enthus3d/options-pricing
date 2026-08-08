@@ -12,7 +12,7 @@ Stage 2 - Monte Carlo Pricer
 5. Plot convergence rate demonstrating $\mathcal{O}(N^{−1/2} )$ behaviour
 
 Stage 3 - Greeks and Extensions
-6. Implement Delta, Gamma, Vega analytically from Black-Scholes formula
-7. Implement numerically via finite differences as verification
-8. Plot option price surface as joint function of $S$ and $σ$
-9. C++ port of core pricer - optional, only if Stages 1 and 2 are solid
+1. Implement Delta, Gamma, Vega analytically from Black-Scholes formula
+2. Implement numerically via finite differences as verification
+3. Plot option price surface as joint function of $S$ and $σ$
+4. C++ port of core pricer - optional, only if Stages 1 and 2 are solid
