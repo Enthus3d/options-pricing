@@ -11,7 +11,7 @@ Stage 2 - Monte Carlo Pricer
 4. Implement antithetic variates variance reduction
 5. Plot convergence rate demonstrating $\mathcal{O}(N^{−1/2} )$ behaviour
 
- Stage 3 - Greeks and Extensions
+Stage 3 - Greeks and Extensions
 6. Implement Delta, Gamma, Vega analytically from Black-Scholes formula
 7. Implement numerically via finite differences as verification
 8. Plot option price surface as joint function of $S$ and $σ$
