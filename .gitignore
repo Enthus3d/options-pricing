@@ -2,4 +2,4 @@
 **/.ipynb_checkpoints/
 .obsidian/
 **/.obsidian/
-
+__pycache__
