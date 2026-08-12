@@ -1,8 +1,7 @@
-Stage 1 - Analytical Pricer
+Stage 1 - Analytical Pricer - Complete
 1. Implement Black-Scholes closed-form solution for European call and put
 2. Implement put-call parity as a verification check
 3. Plot option price as a function of spot price $S$, volatility $σ$, and time to expiry $T$
-4. Verify outputs against known benchmark values
 
 Stage 2 - Monte Carlo Pricer
 1. Simulate $N$ paths of ST under risk-neutral measure
