@@ -79,8 +79,8 @@ $$
 
 Using this equation we can verify the implementation of the equations to ensure their accuracy. This has been done across a wide range of values in `analytical_pricer.ipynb` to ensure the equations are correct.
 ### Results
-Within `analytical_pricer.ipynb` a range of behaviours of the Black-Scholes pricer was explored, and the following relationships were discovered:
-### Option price against spot price $S$
+Within `analytical_pricer.ipynb` the of behaviour of the Black-Scholes pricer was explored by investigating the effect of  $S ,T \text{ and } \sigma$ against the value of the options. 
+#### Option price against spot price $S$
 The following relationship was observed :
 
  ![Option price against spot price](figures/option_S.png)
@@ -96,3 +96,19 @@ P = \max(0, K-S)
 $$
 
 The $S\to\infty$ behaviour means the call tends to infinty while the $-S$ in the put makes it have the opposite reacion and it tends to $0$, and vice versa for $S\to 0$, $C\to 0$ and $P\to Ke^{-rT}$. This tells us that a deep in the money or out of the money outcome becomes nearly certain as the spot price moves to either extreme, so the option behaves increasingly like a forward contract (ITM) or becomes worthless (OTM).
+#### Option price against volatility $\sigma$
+Below we are looking at the impact of increasing volatility on the option price. We can see that it is a monotonic increase from the graph, which is a fairly unintuitive result. Why does a more volatile stock lead to a more valuable option? It is due to the capped loss. There is no way to lose money by owning an option as you can choose whether to exercise it at expiry. So the loss is capped at $£0$. This means that greater spread afforded to you by a more volatile stock only makes for a potential increase in the value of that stock at expiration as it cannot decrease it.
+
+![Option price against spot price](figures/option_sigma.png)
+
+As the volatility becomes extreme the stock may either become incredibly large or negligibly small compared to the strike price. In the first scenario where the stock becomes incredibly large compared to the strike price we would have $S_T-K\approx S_T$ so our return would be almost the same as if we had just bought and held the stock, which is why $C\to S$. In the negligible case the put would be exercised and $S_T$ would be very small compared to $K$ so our return would be $K-S_T\approx K$. This is why $P\to Ke^{−rT}$ . As volatility increases, it becomes increasingly certain that this scenario dominates, and the put's value converges to the present value of definitely receiving $K$ at expiry.
+#### Option price against time until expiry $T$
+Here we are exploring the behaviours of the put and call pricing as time until expiry changes. We can see that the put options price increases and then begins to decrease, tending towards $0$ as $T\to \infty$. On the other hand the call options price seems to tend to the current stock value, i.e. $C\to S$ as $T\to \infty$. We have that as $T\ \to \infty, d_1\to \infty$ and $d_2\to \infty$ (this is true for positive $r$ or sufficiently small negative $r$) which means that $N(d_1),N(d_2)\to 1$. This means that $C\to S-K^{-rT}\to S$ as $T\to \infty$. 
+
+![Option price against spot price](figures/option_T.png)
+
+The main reason for this strange behaviour of the put option is due to the relative rate of decay between the $N(-d_1)$ and $N(-d_2)$ terms. 
+
+![Option price against spot price](figures/N_T.png)
+
+As we can see in the second graph the value of $N(-d_1)$ is falling faster than $N(-d_2)$. This means that the second term which is reducing the value of $P$ is decaying faster than the value of the first term is decaying. Then once the value of $N(-d_1)$ bottoms out, the decay of $N(-d_2)$ and $\exp(-T)$ takes over once more and we see a gradual decay once more. This combination of factors leads to a "speed-bump" like shape.
