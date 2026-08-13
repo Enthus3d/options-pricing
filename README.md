@@ -81,5 +81,18 @@ Using this equation we can verify the implementation of the equations to ensure 
 ### Results
 Within `analytical_pricer.ipynb` a range of behaviours of the Black-Scholes pricer was explored, and the following relationships were discovered:
 ### Option price against spot price $S$
-The following relationship was observed 
+The following relationship was observed :
+
  ![[option_S.png]]
+
+This graph shows how the price of the option varies as the spot price is varied while the other parameters are kept fixed. As $S$ moves to either extreme, the option price approaches the same linear asymptotes indicated by the terminal payoff condition:
+
+$$
+C = \max(0, S-K)
+$$
+
+$$
+P = \max(0, K-S)
+$$
+
+The $S\to\infty$ behaviour means the call tends to infinty while the $-S$ in the put makes it have the opposite reacion and it tends to $0$, and vice versa for $S\to 0$, $C\to 0$ and $P\to Ke^{-rT}$. This tells us that a deep in the money or out of the money outcome becomes nearly certain as the spot price moves to either extreme, so the option behaves increasingly like a forward contract (ITM) or becomes worthless (OTM).
