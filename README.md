@@ -83,7 +83,7 @@ Within `analytical_pricer.ipynb` a range of behaviours of the Black-Scholes pric
 ### Option price against spot price $S$
 The following relationship was observed :
 
- ![Option price against spot price](option_S.png)
+ ![Option price against spot price](figures/option_S.png)
 
 This graph shows how the price of the option varies as the spot price is varied while the other parameters are kept fixed. As $S$ moves to either extreme, the option price approaches the same linear asymptotes indicated by the terminal payoff condition:
 
