@@ -82,4 +82,4 @@ Using this equation we can verify the implementation of the equations to ensure 
 Within `analytical_pricer.ipynb` a range of behaviours of the Black-Scholes pricer was explored, and the following relationships were discovered:
 ### Option price against spot price $S$
 The following relationship was observed 
- 
+ ![[option_S.png]]
