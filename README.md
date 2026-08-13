@@ -37,11 +37,40 @@ $$
 
 have been implemented. The fair price of the European call option is given by `bs_call(S, K, T, R, sigma)` and similarly the price of the put option is given by `bs_put(S, K, T, R, sigma)` which takes the same parameters: stock spot price ($S$, the price of the stock today), strike price ($K$, the price at which you have agreed to buy or sell the stock), time until expiration ($T$, in years), the risk-free rate ($R$) and the volatility of the underlying stock ($\sigma$). The function `intermediaries` (which also takes the same inputs) is used to return the values of $d_1, d_2$.
 
-In `analytical_pricer.ipynb` there is a full explaination of how the Black-Scholes equation is derived and how it works starting at the equation modelling **Geometric Brownian Motion**: $$dS = \mu S\:dt+\sigma S\:dW$$ and **Itô's Lemma**: $$dV = \frac{\partial V}{\partial t}dt+\frac{\partial V}{\partial S}dS+\frac{1}{2}\frac{\partial^2 V}{\partial S^2}(dS)^2$$ and resulting in the **Black-Scholes PDE**: $$\boxed{\frac{\partial V}{\partial t} +\frac{1}{2}\sigma^2S^2\frac{\partial^2V}{\partial S^2}+rS\frac{\partial V}{\partial S}-rV = 0}$$ and its solutions which are the equations implemented in `analytical.py`.
+In `analytical_pricer.ipynb` there is a full explaination of how the Black-Scholes equation is derived and how it works starting at the equation modelling **Geometric Brownian Motion**: 
+
+$$
+dS = \mu S\:dt+\sigma S\:dW
+$$
+
+and **Itô's Lemma**: 
+
+$$
+dV = \frac{\partial V}{\partial t}dt+\frac{\partial V}{\partial S}dS+\frac{1}{2}\frac{\partial^2 V}{\partial S^2}(dS)^2
+$$
+
+and resulting in the **Black-Scholes PDE**: 
+
+$$
+\boxed{\frac{\partial V}{\partial t} +\frac{1}{2}\sigma^2S^2\frac{\partial^2V}{\partial S^2}+rS\frac{\partial V}{\partial S}-rV = 0}
+$$
+
+and its solutions which are the equations implemented in `analytical.py`.
 #### Why $\mu$ vanishes
-We can construct a portfolio: $$\Pi = V(S,t)-\Delta S$$ and determine that it is **risk-free** by selecting $\Delta = \partial V/\partial S$. Therefore by **no-arbitrage**, the portfolio must earn the **risk-free rate, $r$** : $$\frac{d\Pi}{dt} = r\Pi$$ which allows us to derive the boxed PDE above, within which there is no drift $(\mu)$ term, as our substitution of $\Delta$ removes that term alongside the Wiener Process, leaving us a deterministic equation. (This can also be shown using the **First Fundamental Theorem of Asset Pricing**)
+We can construct a portfolio: 
+
+$$
+\Pi = V(S,t)-\Delta S
+$$
+
+and determine that it is **risk-free** by selecting $\Delta = \partial V/\partial S$. Therefore by **no-arbitrage**, the portfolio must earn the **risk-free rate, $r$** : 
+
+$$
+\frac{d\Pi}{dt} = r\Pi
+$$
+
+which allows us to derive the boxed PDE above, within which there is no drift $(\mu)$ term, as our substitution of $\Delta$ removes that term alongside the Wiener Process, leaving us a deterministic equation. (This can also be shown using the **First Fundamental Theorem of Asset Pricing**)
 #### Put-Call Parity
-### Put-Call Parity
 The pricing equations have an interesting relationship:
 
 $$
