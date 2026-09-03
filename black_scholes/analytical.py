@@ -10,7 +10,7 @@ def intermediaries(S, K, T, R, sigma):
 	return d_1, d_2
 
 ## This function takes in the current stock price (S), strike price (K), ##
-## time until expriation in years (T), risk-free rate (R) and the        ##
+## time until expiration in years (T), risk-free rate (R) and the        ##
 ## volatility of the stock (sigma) and returns the fair price for the    ##
 ## European call option today                                            ##
 
@@ -18,8 +18,8 @@ def bs_call(S, K, T, R, sigma):
 	d_1, d_2 = intermediaries(S, K, T, R, sigma)
 	return S*scipy.stats.norm.cdf(d_1) - K*np.exp(-R*T)*scipy.stats.norm.cdf(d_2)
 
-## This function performs a similar calulation but instead returns the   ##
-## fari price for the European put option today                          ##
+## This function performs a similar calculation but instead returns the  ##
+## fair price for the European put option today                          ##
 
 def bs_put(S, K, T, R, sigma):
 	d_1, d_2 = intermediaries(S, K, T, R, sigma)
