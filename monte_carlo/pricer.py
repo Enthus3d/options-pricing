@@ -14,7 +14,7 @@ def simulate_S_T(S, T, r, sigma, Z_n):
     return S*np.exp(T*(r-(0.5*(sigma**2)))+(sigma*np.sqrt(T)*Z_n))
 
 def generate_normals(n):
-    return np.random.normal(0.0, 1.0, n)
+    return np.random.normal(0.0, 1.0, int(n))
 
 def payoff_0(S_T_n, K, option_type):
     if option_type == "call":
@@ -43,10 +43,10 @@ def confidence_interval(price, standard_error, level = 0.95):
     critical_value = scipy.stats.norm.ppf(1-(1-level)/2)
     return (price - (standard_error*critical_value), price + (standard_error*critical_value))
 
-def convergence_sweep(S, K, T, r, sigma, n_vals, option_type):
+def convergence_sweep(n_vals, S, K, T, r, sigma, option_type):
     prices_se = []
     for i in n_vals:
         Z_n = generate_normals(i)
         payoffs = payoff(S, K, T, r, sigma, Z_n, option_type)
-        prices_se.append([mc_price_from_payoff(T, r, payoffs), payoffs])
+        prices_se.append([mc_price_from_payoff(T, r, payoffs), mc_standard_error(payoffs, T, r)])
     return prices_se
