@@ -5,7 +5,7 @@ Stage 1 - Analytical Pricer - Complete
 2. Implement put-call parity as a verification check
 3. Plot option price as a function of spot price $S$, volatility $σ$, and time to expiry $T$
 
-Stage 2 - Monte Carlo Pricer
+Stage 2 - Monte Carlo Pricer - In Progress, Mostly Complete
 1. Simulate $N$ paths of ST under risk-neutral measure
 2. Compute discounted average payoff
 3. Compare convergence against analytical solution as $N$ increases
